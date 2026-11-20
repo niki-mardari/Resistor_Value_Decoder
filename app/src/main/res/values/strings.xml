@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Resistor Color Calculator</string>
+    <string name="message">Input the color bands of the resistor</string>
+    <string name="button">Calculate</string>
+
+    <!-- Band 1 spinner (First significant digit)-->
+    <string-array name="spinner1">
+        <item>Black</item>
+        <item>Brown</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Violet</item>
+        <item>Gray</item>
+        <item>White</item>
+    </string-array>
+
+    <!-- Band 2 spinner (Second significant digit)-->
+    <string-array name="spinner2">
+        <item>Black</item>
+        <item>Brown</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Violet</item>
+        <item>Gray</item>
+        <item>White</item>
+    </string-array>
+
+    <!-- Band 3 spinner ( Multiplier )-->
+    <string-array name="spinner3">
+        <item>Black</item>
+        <item>Brown</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Violet</item>
+        <item>Gray</item>
+        <item>White</item>
+    </string-array>
+
+    <!-- Band 4 spinner ( Tolerance )-->
+    <string-array name="spinner4">
+        <item>Black</item>
+        <item>Brown</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Violet</item>
+        <item>Gray</item>
+        <item>White</item>
+    </string-array>
+
+    <!-- Future to be added resistance result-->
+    <string name="result">240 Ohms</string>
+
+</resources>
