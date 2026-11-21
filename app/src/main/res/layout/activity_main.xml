@@ -20,19 +20,10 @@
 
     <!-- Band 1 spinner (First significant digit)-->
     <!--Lesson learned array spinners belong to the android namespace not app-->
-
-    <!-- Band 2 spinner (Second significant digit)-->
-
-    <!-- Band 3 spinner ( Multiplier )-->
-
-    <!-- Band 4 spinner ( Tolerance )-->
-
-    <!-- Resistor value output -->
-
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:entries="@array/spinner1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,54 +31,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.123" />
-
+    <!-- Band 2 spinner (Second significant digit)-->
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:entries="@array/spinner2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318" />
-
+        app:layout_constraintVertical_bias="0.232" />
+    <!-- Band 3 spinner ( Multiplier )-->
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:entries="@array/spinner3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
-
+        app:layout_constraintVertical_bias="0.343" />
+    <!-- Band 4 spinner ( Tolerance )-->
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:entries="@array/spinner4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.452" />
 
-    <TextView
-        android:id="@+id/numberOutput"
+    <!-- Resistor value output -->
+
+    <Button
+        android:id="@+id/calculate_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/result"
-        android:textSize="32sp"
-        android:textStyle="bold"
+        android:backgroundTint="@color/purple"
+        android:text="@string/button"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.847" />
+        app:layout_constraintVertical_bias="0.556" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.947" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

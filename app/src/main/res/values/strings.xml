@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Resistor Color Calculator</string>
-    <string name="message">Input the color bands of the resistor</string>
+    <string name="message">Input the color bands of the 4 band resistor</string>
     <string name="button">Calculate</string>
+
+    <!-- Spinners with color selector and value corresponding array-->
 
     <!-- Band 1 spinner (First significant digit)-->
     <string-array name="spinner1">
@@ -11,11 +13,24 @@
         <item>Orange</item>
         <item>Yellow</item>
         <item>Green</item>
-        <item>Orange</item>
+        <item>Blue</item>
         <item>Violet</item>
         <item>Gray</item>
         <item>White</item>
     </string-array>
+
+    <integer-array name="spinner1_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </integer-array>
 
     <!-- Band 2 spinner (Second significant digit)-->
     <string-array name="spinner2">
@@ -25,11 +40,24 @@
         <item>Orange</item>
         <item>Yellow</item>
         <item>Green</item>
-        <item>Orange</item>
+        <item>Blue</item>
         <item>Violet</item>
         <item>Gray</item>
         <item>White</item>
     </string-array>
+
+    <integer-array name="spinner2_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </integer-array>
 
     <!-- Band 3 spinner ( Multiplier )-->
     <string-array name="spinner3">
@@ -39,27 +67,57 @@
         <item>Orange</item>
         <item>Yellow</item>
         <item>Green</item>
-        <item>Orange</item>
+        <item>Blue</item>
         <item>Violet</item>
         <item>Gray</item>
         <item>White</item>
+        <item>Gold</item>
+        <item>Silver</item>
     </string-array>
+
+    <!-- Stored as powers of 10 -->
+    <integer-array name="spinner3_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>-1</item>
+        <item>-2</item>
+    </integer-array>
 
     <!-- Band 4 spinner ( Tolerance )-->
     <string-array name="spinner4">
-        <item>Black</item>
         <item>Brown</item>
         <item>Red</item>
-        <item>Orange</item>
-        <item>Yellow</item>
         <item>Green</item>
-        <item>Orange</item>
+        <item>Blue</item>
         <item>Violet</item>
         <item>Gray</item>
-        <item>White</item>
+        <item>Gold</item>
+        <item>Silver</item>
+    </string-array>
+
+    <!-- Tolerance values  -->
+    <string-array name="spinner4_values">
+        <item>1</item>
+        <item>2</item>
+        <item>0.5</item>
+        <item>0.25</item>
+        <item>0.1</item>
+        <item>0.05</item>
+        <item>5</item>
+        <item>10</item>
     </string-array>
 
     <!-- Future to be added resistance result-->
     <string name="result">240 Ohms</string>
 
 </resources>
+
+<!-- Sources: -->

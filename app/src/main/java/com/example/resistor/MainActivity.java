@@ -1,10 +1,16 @@
 package com.example.resistor;
 
-import static android.os.Build.VERSION_CODES_FULL.R;
+// import static android.os.Build.VERSION_CODES_FULL.R;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -23,16 +29,62 @@ public class MainActivity extends AppCompatActivity {
     // Calculate function gets called anytime a choice gets updated
     // Answer number gets updated and displayed
 
-    float answer, choice1, choice2, choice3, choice4; // Initialize all as zero
-    void calculate(choice1, choice2, choice3, choice4){
+    Button calculate;
+    Spinner spinner1, spinner2, spinner3, spinner4;
+    // float choice1 = 0, choice2 = 0, choice3 = 0, choice4 = 0; // Initialize all as zero
 
+    public double calculate(int choice1, int choice2, int choice3) {
+        return (choice1 * 10 + choice2) * Math.pow(10, choice3);
     }
 
+    // What happens when a spinner item is selected
+    public static class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
+        public void onItemSelected(AdapterView<?> parent, View view,
+                                   int pos, long id) {
+            // An item is selected. You can retrieve the selected item using
+            // parent.getItemAtPosition(pos).
+        }
+
+        public void onNothingSelected(AdapterView<?> parent) {
+            // Another interface callback.
+        }
+    }
+
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         WindowCompat.enableEdgeToEdge(getWindow());
         setContentView(R.layout.activity_main);
+
+        TextView textView;
+        // Initialize Objects
+        // Create spinner and button objects
+        spinner1 = findViewById(R.id.spinner1);
+        spinner2 = findViewById(R.id.spinner2);
+        spinner3 = findViewById(R.id.spinner3);
+        spinner4 = findViewById(R.id.spinner4);
+        calculate = findViewById(R.id.calculate_btn);
+        textView = findViewById(R.id.answer);
+
+        spinner1.getOnItemSelectedListener();
+        spinner2.getOnItemSelectedListener();
+        spinner3.getOnItemSelectedListener();
+        spinner4.getOnItemSelectedListener();
+
+        // Button onClick listener
+        // Get values of spinner arrays into choices
+        calculate.setOnClickListener(v -> {
+            int choice1 = getResources().getIntArray(R.array.spinner1_values)[spinner1.getSelectedItemPosition()];
+            int choice2 = getResources().getIntArray(R.array.spinner2_values)[spinner2.getSelectedItemPosition()];
+            int choice3 = getResources().getIntArray(R.array.spinner3_values)[spinner3.getSelectedItemPosition()];
+            float choice4 = Float.parseFloat(getResources().getStringArray(R.array.spinner4_values)[spinner4.getSelectedItemPosition()]);
+
+            // Calculate the resistance
+            double resistance = calculate(choice1, choice2, choice3);
+            // Display the resistance with the tolerance
+            textView.setText(String.format(java.util.Locale.getDefault(),"%.2f Ω ±%.2f%%", resistance, choice4));
+        });
 
         /////////////// Spinner 1 ///////////////
         Spinner spinner = (Spinner) findViewById(R.id.spinner1);
@@ -88,8 +140,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Spinner1 onSelectionChange = 
 
-        answer = choice1 + choice2 + choice3;
     }
 }
