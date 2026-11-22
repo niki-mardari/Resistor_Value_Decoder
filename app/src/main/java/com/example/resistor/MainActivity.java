@@ -1,145 +1,125 @@
-package com.example.resistor;
+    package com.example.resistor;
 
-// import static android.os.Build.VERSION_CODES_FULL.R;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.Spinner;
+    import android.widget.TextView;
+    import android.widget.Toast;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
+    import androidx.appcompat.app.AppCompatActivity;
+    import androidx.core.view.WindowCompat;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
+    public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
+        // User selects the inputs from the dropdowns
+        // Chooses 1st band, gets saved into choice 1
+        // Chooses 2nd band, gets saved into choice 2
+        // Chooses 3rd band, gets saved into choice 3
+        // Chooses 4th band , gets saved into choice 4
+        // Calculate function gets called anytime a choice gets updated
+        // Answer number gets updated and displayed
 
-    // User selects the inputs from the dropdowns
-    // Chooses 1st band, gets saved into choice 1
-    // Chooses 2nd band, gets saved into choice 2
-    // Chooses 3rd band, gets saved into choice 3
-    // Chooses 4th band , gets saved into choice 4
-
-    // Calculate function gets called anytime a choice gets updated
-    // Answer number gets updated and displayed
-
-    Button calculate;
-    Spinner spinner1, spinner2, spinner3, spinner4;
-    // float choice1 = 0, choice2 = 0, choice3 = 0, choice4 = 0; // Initialize all as zero
-
-    public double calculate(int choice1, int choice2, int choice3) {
-        return (choice1 * 10 + choice2) * Math.pow(10, choice3);
-    }
-
-    // What happens when a spinner item is selected
-    public static class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
-        public void onItemSelected(AdapterView<?> parent, View view,
-                                   int pos, long id) {
-            // An item is selected. You can retrieve the selected item using
-            // parent.getItemAtPosition(pos).
+        public double calculate(int choice1, int choice2, int choice3) {
+            int digits = Integer.parseInt(String.valueOf(choice1) +choice2);
+            return digits * Math.pow(10, choice3);
         }
 
-        public void onNothingSelected(AdapterView<?> parent) {
-            // Another interface callback.
+        // Loads Android XML layout
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            WindowCompat.enableEdgeToEdge(getWindow());
+            setContentView(R.layout.activity_main); // Creates Ui Components
+
+        }
+        //Call when the button gets clicked
+        public void onClickCalculate(View view) {
+            //Get a reference to the TextView results that shows the final answer
+            TextView results = findViewById(R.id.answer);
+
+            //Get a reference to the Spinners
+            Spinner band1 = findViewById(R.id.spinner1);
+            Spinner band2 = findViewById(R.id.spinner2);
+            Spinner band3 = findViewById(R.id.spinner3);
+            Spinner band4 = findViewById(R.id.spinner4);
+
+            //Get the selected colors from the spinners
+            String selectedColor1 = String.valueOf(band1.getSelectedItem());
+            String selectedColor2 = String.valueOf(band2.getSelectedItem());
+            String selectedColor3 = String.valueOf(band3.getSelectedItem());
+            String selectedColor4 = String.valueOf(band4.getSelectedItem());
+
+            // Initialize 3 bands selections for 1st and 2nd digits, multiplier
+            int choice1, choice2, choice3;
+            double choice4; // Choice 4 double because tolerances values have decimal values
+
+            // Toast error message
+            Toast error = Toast.makeText(this /* MyActivity */, "Error selecting band choice!", Toast.LENGTH_LONG);
+            // Toast Calculated message
+            Toast calculated = Toast.makeText(this /* MyActivity */, "Done!", Toast.LENGTH_SHORT);
+            // https://developer.android.com/guide/topics/ui/notifiers/toasts#java
+
+            // Convert colors to numbers
+            switch (selectedColor1) {
+                case "Black":  choice1 = 0; break;
+                case "Brown":  choice1 = 1; break;
+                case "Red":    choice1 = 2; break;
+                case "Orange": choice1 = 3; break;
+                case "Yellow": choice1 = 4; break;
+                case "Green":  choice1 = 5; break;
+                case "Blue":   choice1 = 6; break;
+                case "Violet": choice1 = 7; break;
+                case "Gray":   choice1 = 8; break;
+                case "White":  choice1 = 9; break;
+                default: choice1 = 0; error.show();            }
+
+            switch (selectedColor2) {
+                case "Black":  choice2 = 0; break;
+                case "Brown":  choice2 = 1; break;
+                case "Red":    choice2 = 2; break;
+                case "Orange": choice2 = 3; break;
+                case "Yellow": choice2 = 4; break;
+                case "Green":  choice2 = 5; break;
+                case "Blue":   choice2 = 6; break;
+                case "Violet": choice2 = 7; break;
+                case "Gray":   choice2 = 8; break;
+                case "White":  choice2 = 9; break;
+                default: choice2 = 0; error.show();            }
+
+            // Multiplier stored as power
+            switch (selectedColor3) {
+                case "Black":  choice3 = 0; break;
+                case "Brown":  choice3 = 1; break;
+                case "Red":    choice3 = 2; break;
+                case "Orange": choice3 = 3; break;
+                case "Yellow": choice3 = 4; break;
+                case "Green":  choice3 = 5; break;
+                case "Blue":   choice3 = 6; break;
+                case "Violet": choice3 = 7; break;
+                case "Gray":   choice3 = 8; break;
+                case "White":  choice3 = 9; break;
+                case "Gold":   choice3 = -1; break;
+                case "Silver": choice3 = -2; break;
+                default: choice3 = 0; error.show();            }
+
+            switch (selectedColor4) {
+                case "Brown":  choice4 = 1; break;
+                case "Red":    choice4 = 2; break;
+                case "Green":  choice4 = 0.5; break;
+                case "Blue":   choice4 = 0.25; break;
+                case "Violet": choice4 = 0.1; break;
+                case "Gray":   choice4 = 0.05; break;
+                case "Gold":   choice4 = 5; break;
+                case "Silver": choice4 = 10; break;
+                default: choice4 = 0; error.show();
+            }
+
+            String out = calculate(choice1, choice2, choice3) + " " + "±" + choice4 + "%";
+
+            //Display the final calculation
+            results.setText(out);
+            calculated.show();
         }
     }
 
-    @SuppressLint("CutPasteId")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        WindowCompat.enableEdgeToEdge(getWindow());
-        setContentView(R.layout.activity_main);
-
-        TextView textView;
-        // Initialize Objects
-        // Create spinner and button objects
-        spinner1 = findViewById(R.id.spinner1);
-        spinner2 = findViewById(R.id.spinner2);
-        spinner3 = findViewById(R.id.spinner3);
-        spinner4 = findViewById(R.id.spinner4);
-        calculate = findViewById(R.id.calculate_btn);
-        textView = findViewById(R.id.answer);
-
-        spinner1.getOnItemSelectedListener();
-        spinner2.getOnItemSelectedListener();
-        spinner3.getOnItemSelectedListener();
-        spinner4.getOnItemSelectedListener();
-
-        // Button onClick listener
-        // Get values of spinner arrays into choices
-        calculate.setOnClickListener(v -> {
-            int choice1 = getResources().getIntArray(R.array.spinner1_values)[spinner1.getSelectedItemPosition()];
-            int choice2 = getResources().getIntArray(R.array.spinner2_values)[spinner2.getSelectedItemPosition()];
-            int choice3 = getResources().getIntArray(R.array.spinner3_values)[spinner3.getSelectedItemPosition()];
-            float choice4 = Float.parseFloat(getResources().getStringArray(R.array.spinner4_values)[spinner4.getSelectedItemPosition()]);
-
-            // Calculate the resistance
-            double resistance = calculate(choice1, choice2, choice3);
-            // Display the resistance with the tolerance
-            textView.setText(String.format(java.util.Locale.getDefault(),"%.2f Ω ±%.2f%%", resistance, choice4));
-        });
-
-        /////////////// Spinner 1 ///////////////
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-        // Create an ArrayAdapter using the string array and a default spinner layout.
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.spinner1,
-                android.R.layout.simple_spinner_item
-        );
-// Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner.
-        spinner.setAdapter(adapter);
-
-        /////////////// Spinner 2 ///////////////
-        // Create an ArrayAdapter using the string array and a default spinner layout.
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
-                this,
-                R.array.spinner2,
-                android.R.layout.simple_spinner_item
-        );
-// Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner.
-        spinner.setAdapter(adapter2);
-
-        /////////////// Spinner 3 ///////////////
-        // Create an ArrayAdapter using the string array and a default spinner layout.
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(
-                this,
-                R.array.spinner3,
-                android.R.layout.simple_spinner_item
-        );
-// Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner.
-        spinner.setAdapter(adapter3);
-
-        /////////////// Spinner 4 ///////////////
-        // Create an ArrayAdapter using the string array and a default spinner layout.
-        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(
-                this,
-                R.array.spinner1,
-                android.R.layout.simple_spinner_item
-        );
-// Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner.
-        spinner.setAdapter(adapter4);
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-    }
-}
+    // Look into modern way pf spinner: https://developer.android.com/develop/ui/views/components/spinner

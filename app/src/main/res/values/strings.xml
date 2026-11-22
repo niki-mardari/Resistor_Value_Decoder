@@ -19,19 +19,6 @@
         <item>White</item>
     </string-array>
 
-    <integer-array name="spinner1_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-    </integer-array>
-
     <!-- Band 2 spinner (Second significant digit)-->
     <string-array name="spinner2">
         <item>Black</item>
@@ -45,19 +32,6 @@
         <item>Gray</item>
         <item>White</item>
     </string-array>
-
-    <integer-array name="spinner2_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-    </integer-array>
 
     <!-- Band 3 spinner ( Multiplier )-->
     <string-array name="spinner3">
@@ -75,22 +49,6 @@
         <item>Silver</item>
     </string-array>
 
-    <!-- Stored as powers of 10 -->
-    <integer-array name="spinner3_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>-1</item>
-        <item>-2</item>
-    </integer-array>
-
     <!-- Band 4 spinner ( Tolerance )-->
     <string-array name="spinner4">
         <item>Brown</item>
@@ -103,21 +61,9 @@
         <item>Silver</item>
     </string-array>
 
-    <!-- Tolerance values  -->
-    <string-array name="spinner4_values">
-        <item>1</item>
-        <item>2</item>
-        <item>0.5</item>
-        <item>0.25</item>
-        <item>0.1</item>
-        <item>0.05</item>
-        <item>5</item>
-        <item>10</item>
-    </string-array>
-
     <!-- Future to be added resistance result-->
     <string name="result">240 Ohms</string>
 
 </resources>
 
-<!-- Sources: -->
+<!-- Sources: https://developer.android.com/develop/ui/views/components/spinner#java-->
