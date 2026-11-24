@@ -3,8 +3,8 @@ package com.example.resistor;
 public class ResistorExpert {
 
     public double calculate(int choice1, int choice2, int choice3) {
-        int digits = Integer.parseInt(String.valueOf(choice1) +choice2);
-        return digits * Math.pow(10, choice3); // Do power conversion in method instead of in each switch case
+        //int digits = Integer.parseInt(String.valueOf(choice1) +choice2);
+        return ((choice1*10)+choice2) * Math.pow(10, choice3); // Do power conversion in method instead of in each switch case
     }
 
     public String fourBandResistor(String selectedColor1, String selectedColor2, String selectedColor3, String selectedColor4){
