@@ -18,6 +18,34 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.044" />
 
+    <!-- Spinner to choose resistor bands-->
+    <Spinner
+        android:id="@+id/spinner0"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:entries="@array/spinner0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.154" />
+
+    <!-- Old calculate button
+    <Button
+        android:id="@+id/calculate_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:onClick="onClickCalculate"
+        android:text="@string/button"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.748" />
+-->
     <!-- Band 1 spinner (First significant digit)-->
     <!--Lesson learned array spinners belong to the android namespace not app-->
     <Spinner
@@ -30,7 +58,8 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.317" />
+
     <!-- Band 2 spinner (Second significant digit)-->
     <Spinner
         android:id="@+id/spinner2"
@@ -42,7 +71,8 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.232" />
+        app:layout_constraintVertical_bias="0.425" />
+
     <!-- Band 3 spinner ( Multiplier )-->
     <Spinner
         android:id="@+id/spinner3"
@@ -54,7 +84,8 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintVertical_bias="0.537" />
+
     <!-- Band 4 spinner ( Tolerance )-->
     <Spinner
         android:id="@+id/spinner4"
@@ -66,23 +97,21 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.452" />
+        app:layout_constraintVertical_bias="0.646" />
 
     <!-- Resistor value output -->
 
-    <Button
-        android:id="@+id/calculate_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple"
-        android:text="@string/button"
-        android:onClick="onClickCalculate"
-        android:textSize="20sp"
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:entries="@array/spinner4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556" />
+        app:layout_constraintVertical_bias="0.756" />
 
     <TextView
         android:id="@+id/answer"
@@ -96,6 +125,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintVertical_bias="0.885" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

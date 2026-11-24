@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Resistor Color Calculator</string>
-    <string name="message">Input the color bands of the 4 band resistor</string>
+    <string name="message">Calculate Resistor Value</string>
     <string name="button">Calculate</string>
 
-    <!-- Spinners with color selector and value corresponding array-->
+    <!-- Spinner for choosing amount of resistor bands -->
+    <string-array name="spinner0">
+        <item>4-band</item>
+        <item>5-band</item>
+    </string-array>
 
+    <!-- Spinners with color selector and value corresponding array-->
     <!-- Band 1 spinner (First significant digit)-->
     <string-array name="spinner1">
         <item>Black</item>
@@ -49,7 +54,7 @@
         <item>Silver</item>
     </string-array>
 
-    <!-- Band 4 spinner ( Tolerance )-->
+    <!-- Band 4 or 5 spinners ( Tolerance )-->
     <string-array name="spinner4">
         <item>Brown</item>
         <item>Red</item>
