@@ -1,7 +1,5 @@
 package com.example.resistor;
 
-
-
 public class ResistorExpert {
 
     public double calculate(int choice1, int choice2, int choice3) {
