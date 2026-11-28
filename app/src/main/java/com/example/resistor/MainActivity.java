@@ -49,7 +49,7 @@
             String selectedColor4 = String.valueOf(band4.getSelectedItem());
 
             // Toast Calculated message
-            Toast calculated = Toast.makeText(this /* MyActivity */, "Done!", Toast.LENGTH_SHORT);
+            Toast calculated = Toast.makeText(this /* MyActivity */, "Calculated!", Toast.LENGTH_SHORT);
             // https://developer.android.com/guide/topics/ui/notifiers/toasts#java
 
             String out = expert.fourBandResistor(selectedColor1, selectedColor2, selectedColor3, selectedColor4);
