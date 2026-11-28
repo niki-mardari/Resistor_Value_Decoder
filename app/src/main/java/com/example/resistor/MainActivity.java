@@ -5,7 +5,6 @@
     import android.widget.ArrayAdapter;
     import android.widget.Spinner;
     import android.widget.TextView;
-    import android.widget.Toast;
     import android.widget.AdapterView;
 
     import androidx.appcompat.app.AppCompatActivity;
@@ -116,10 +115,6 @@
             String selectedColor4 = String.valueOf(band4.getSelectedItem());
             String selectedColor5 = String.valueOf(band5.getSelectedItem());
 
-            // Toast Calculated message
-            Toast calculated = Toast.makeText(this /* MyActivity */, "Calculated!", Toast.LENGTH_SHORT);
-            // https://developer.android.com/guide/topics/ui/notifiers/toasts#java
-
             // If 4 bands do fourBandResistor
             // String out = expert.fourBandResistor(selectedColor1, selectedColor2, selectedColor3, selectedColor4);
             // If 5-band resistor do fiveBandResistor
@@ -136,7 +131,6 @@
 
             //Display the final calculation
             results.setText(out);
-            calculated.show();
         }
     }
 
